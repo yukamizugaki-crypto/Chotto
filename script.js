@@ -2,6 +2,37 @@
    Chotto Cafe - JavaScript
    ======================================== */
 
+// ---------- オープニングアニメーション ----------
+document.addEventListener('DOMContentLoaded', () => {
+  const subtitleEl = document.getElementById('loader-subtitle-text');
+  const loader = document.getElementById('opening-loader');
+  
+  if (subtitleEl && loader) {
+    // 文字列を1文字ずつのスパンに分割し、アニメーション遅延を設定するヘルパー
+    const animateText = (el, startDelay, charSpeed) => {
+      const text = el.textContent;
+      el.innerHTML = '';
+      [...text].forEach((char, i) => {
+        const span = document.createElement('span');
+        span.className = 'char-span';
+        span.textContent = char === ' ' ? '\u00A0' : char; // 半角スペースの保持
+        span.style.animationDelay = `${startDelay + i * charSpeed}s`;
+        el.appendChild(span);
+      });
+      return startDelay + text.length * charSpeed;
+    };
+    
+    // サブタイトルのアニメーション (ロゴ表示の0.5秒後から即座に開始)
+    const subtitleDelay = 0.5;
+    const subtitleEnd = animateText(subtitleEl, subtitleDelay, 0.08);
+    
+    // すべてのアニメーションが完了した0.8秒後にフェードアウト
+    setTimeout(() => {
+      loader.classList.add('fade-out');
+    }, (subtitleEnd + 0.8) * 1000);
+  }
+});
+
 // ---------- ヘッダースクロール ----------
 const header = document.getElementById('site-header');
 window.addEventListener('scroll', () => {
@@ -32,10 +63,13 @@ document.querySelectorAll('.mobile-nav-link').forEach(link => {
 // ---------- スクロールアニメーション ----------
 const revealEls = document.querySelectorAll(
   '.section-label, .section-title, .section-subtitle, ' +
-  '.about-message, .gallery-item, ' +
-  '.menu-card, .menu-link-btn, ' +
-  '.info-card, .sns-section, ' +
-  '.map-wrap, .access-item'
+  '.about-message, .gallery-frame, ' +
+  '.menu-card, .menu-link-row, ' +
+  '.info-table-cell, .instagram-banner-box, ' +
+  '.map-wrap, .access-row, ' +
+  '.hero-handwritten, .about-handwritten, .menu-handwritten-note-top, ' +
+  '.menu-handwritten-note-mid, .info-handwritten, .access-handwritten, ' +
+  '.section-header-asym, .menu-links-list'
 );
 
 const revealObserver = new IntersectionObserver((entries) => {

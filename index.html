@@ -7,16 +7,32 @@
   <meta name="description" content="DIYで作った、ちいさな隠れ家カフェ「Chotto」。大阪府寝屋川市郡元町、香里園駅から徒歩4分。水・土曜18:00〜25:00営業。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Zen+Old+Mincho:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Kiwi+Maru:wght@400;500;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- オープニングアニメーション画面 -->
+  <div class="opening-loader" id="opening-loader">
+    <div class="loader-content">
+      <div class="loader-logo-frame">
+        <img src="img/ロゴ.jpg" alt="Chotto" class="loader-logo" />
+      </div>
+      <div class="loader-text-area">
+        <div class="loader-subtitle" id="loader-subtitle-text">ちょっと寄り道、ちょっと特別な時間</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 建築設計グリッド風の背景ライン -->
+  <div class="grid-background"></div>
 
   <!-- ナビゲーション -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="#hero" class="header-logo">
-        <img src="img/ロゴ.jpg" alt="Chotto" class="header-logo-img" />
+        <div class="header-logo-img-wrap">
+          <img src="img/ロゴ.jpg" alt="Chotto" class="header-logo-img" />
+        </div>
       </a>
       <nav class="nav" id="nav">
         <a href="#about" class="nav-link">About</a>
@@ -41,22 +57,29 @@
 
   <!-- ヒーローセクション -->
   <section class="hero" id="hero">
-    <div class="hero-wood-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-logo-wrap">
-        <img src="img/ロゴ.jpg" alt="Chotto" class="hero-logo" />
-      </div>
-      <p class="hero-tagline">ちょっと寄り道、ちょっと特別な時間</p>
-      <div class="hero-badges">
-        <span class="badge">DIY手作り</span>
-        <span class="badge">隠れ家カフェ</span>
-        <span class="badge">香里園 徒歩4分</span>
-      </div>
-      <a href="#about" class="hero-btn">お店を見てみる</a>
-      <div class="hero-instagram-wrap">
-        <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="hero-instagram-link">
-          Instagramはこちら
-        </a>
+    <div class="hero-bg-image-wrap">
+      <img src="img/HERO.png" alt="Chotto Background" class="hero-bg-img" />
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="section-inner hero-inner-wrap">
+      <div class="hero-content-overlay">
+        <div class="hero-title-area">
+          <h1 class="hero-main-title">
+            <span class="line-1">ちょっと寄り道、</span>
+            <span class="line-2">ちょっと特別な時間</span>
+          </h1>
+        </div>
+
+        <div class="hero-badges">
+          <span class="badge">DIY手作り</span>
+          <span class="badge">隠れ家カフェ</span>
+          <span class="badge">香里園 徒歩4分</span>
+        </div>
+        <div class="hero-cta-area">
+          <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="hero-instagram-link">
+            Instagram ↗
+          </a>
+        </div>
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -67,33 +90,44 @@
   <!-- Aboutセクション -->
   <section class="section about-section" id="about">
     <div class="section-inner">
-      <div class="section-label">About</div>
-      <h2 class="section-title">お店について</h2>
-      <p class="section-subtitle">DIYで作った、ちいさな隠れ家カフェ</p>
-
-      <div class="about-message">
-        <p>
-          <span class="about-message-line">ちょっと寄って、ちょっと落ち着いて、</span>
-          <span class="about-message-line">ちょっとほっこりするような場所</span>
-        </p>
-        <p>
-          <span class="about-message-line">内装や家具などはすべて、</span>
-          <span class="about-message-line">ひとつひとつ、DIYでこつこつ手づくり。</span>
-        </p>
+      <div class="section-header-asym">
+        <span class="section-number">01</span>
+        <div class="section-title-wrap">
+          <div class="section-label">About</div>
+          <h2 class="section-title">お店について</h2>
+        </div>
       </div>
 
-      <div class="about-gallery">
-        <div class="gallery-item gallery-item--main">
-          <img src="img/店外.png" alt="Chotto 外観" loading="lazy" />
-          <div class="gallery-caption">外観</div>
+      <div class="about-grid">
+        <div class="about-text-col">
+          <p class="section-subtitle">DIYで作った、ちいさな隠れ家カフェ</p>
+          <div class="about-handwritten">
+            <span class="handwritten-accent">＼ 店内の家具や棚もすべて手作り！ ／</span>
+          </div>
+          <div class="about-message">
+            <p>
+              <span class="about-message-line">ちょっと寄って、ちょっと落ち着いて、</span>
+              <span class="about-message-line">ちょっとほっこりするような場所</span>
+            </p>
+            <p>
+              <span class="about-message-line">内装や家具などはすべて、</span>
+              <span class="about-message-line">ひとつひとつ、DIYでこつこつ手づくり。</span>
+            </p>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="img/店内.png" alt="Chotto 店内" loading="lazy" />
-          <div class="gallery-caption">店内</div>
-        </div>
-        <div class="gallery-item">
-          <img src="img/店内2.png" alt="Chotto 店内2" loading="lazy" />
-          <div class="gallery-caption">店内</div>
+        <div class="about-gallery-asym">
+          <div class="gallery-frame frame-1">
+            <img src="img/店外.png" alt="Chotto 外観" loading="lazy" />
+            <div class="gallery-caption-editorial">01 / EXTERIOR</div>
+          </div>
+          <div class="gallery-frame frame-2">
+            <img src="img/店内.png" alt="Chotto 店内" loading="lazy" />
+            <div class="gallery-caption-editorial">02 / INTERIOR</div>
+          </div>
+          <div class="gallery-frame frame-3">
+            <img src="img/店内2.png" alt="Chotto 店内2" loading="lazy" />
+            <div class="gallery-caption-editorial">03 / INTERIOR</div>
+          </div>
         </div>
       </div>
     </div>
@@ -102,31 +136,41 @@
   <!-- メニューセクション -->
   <section class="section menu-section" id="menu">
     <div class="section-inner">
-      <div class="section-label">Menu</div>
-      <h2 class="section-title">メニュー</h2>
+      <div class="section-header-asym">
+        <span class="section-number">02</span>
+        <div class="section-title-wrap">
+          <div class="section-label">Menu</div>
+          <h2 class="section-title">メニュー</h2>
+        </div>
+      </div>
+
       <p class="section-subtitle">手作りの温かみあふれるフード＆ドリンク</p>
 
       <div class="menu-showcase">
-        <div class="menu-card">
+        <div class="menu-card card-offset-1">
           <div class="menu-card-img-wrap">
             <img src="img/menu1.png" alt="メニュー1" loading="lazy" />
           </div>
         </div>
-        <div class="menu-card">
+        <div class="menu-card card-offset-2">
           <div class="menu-card-img-wrap">
             <img src="img/menu2.png" alt="メニュー2" loading="lazy" />
           </div>
         </div>
       </div>
 
-      <div class="menu-links">
-        <button class="menu-link-btn" id="drink-menu-btn" onclick="openMenuModal('drink')">
-          <span>ドリンクメニューはこちら</span>
-          <span class="menu-link-arrow">→</span>
+      <div class="menu-links-list">
+        <button class="menu-link-row" id="drink-menu-btn" onclick="openMenuModal('drink')">
+          <span class="row-num">01</span>
+          <span class="row-text">DRINK MENU</span>
+          <span class="row-sub">ドリンクメニューを見る</span>
+          <span class="row-arrow">→</span>
         </button>
-        <button class="menu-link-btn" id="food-menu-btn" onclick="openMenuModal('food')">
-          <span>フードメニューはこちら</span>
-          <span class="menu-link-arrow">→</span>
+        <button class="menu-link-row" id="food-menu-btn" onclick="openMenuModal('food')">
+          <span class="row-num">02</span>
+          <span class="row-text">FOOD MENU</span>
+          <span class="row-sub">フードメニューを見る</span>
+          <span class="row-arrow">→</span>
         </button>
       </div>
     </div>
@@ -158,50 +202,57 @@
   <!-- 営業情報セクション -->
   <section class="section info-section" id="info">
     <div class="section-inner">
-      <div class="section-label">Info</div>
-      <h2 class="section-title">営業情報</h2>
+      <div class="section-header-asym">
+        <span class="section-number">03</span>
+        <div class="section-title-wrap">
+          <div class="section-label">Info</div>
+          <h2 class="section-title">営業情報</h2>
+        </div>
+      </div>
 
-      <div class="info-cards">
-        <div class="info-card">
-          <h3 class="info-card-title">営業時間</h3>
-          <p class="info-card-body">
-            水・土<br />
+      <div class="info-table-grid">
+        <div class="info-table-cell cell-hours">
+          <span class="cell-label">Hours / 営業時間</span>
+          <p class="cell-content">
+            水・土曜日<br />
             <strong>18:00 〜 25:00</strong>
           </p>
-          <p class="info-card-note">
-            詳しくは
-            <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="instagram-link" id="instagram-link">
+          <div class="info-handwritten">
+            <span class="handwritten-accent">仕事帰りにも立ち寄れる夜カフェ</span>
+          </div>
+          <p class="cell-note">
+            ※最新の臨時休業等は
+            <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="instagram-link-inline" id="instagram-link">
               Instagram
             </a>
             をご確認ください。
           </p>
         </div>
-        <div class="info-card">
-          <h3 class="info-card-title">所在地</h3>
-          <p class="info-card-body">
+        <div class="info-table-cell cell-address">
+          <span class="cell-label">Location / 所在地</span>
+          <p class="cell-content">
             〒572-0083<br />
-            大阪府寝屋川市<br />
-            郡元町１０−８
+            大阪府寝屋川市郡元町１０−８
           </p>
         </div>
-        <div class="info-card">
-          <h3 class="info-card-title">アクセス</h3>
-          <p class="info-card-body">
-            香里園駅から<br />
+        <div class="info-table-cell cell-access">
+          <span class="cell-label">Access / アクセス</span>
+          <p class="cell-content">
+            京阪本線「香里園駅」より<br />
             <strong>徒歩4分</strong>
           </p>
         </div>
       </div>
 
-      <div class="sns-section">
-        <p class="sns-text">最新情報はInstagramで発信中！</p>
-        <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="instagram-btn" id="instagram-btn">
+      <div class="instagram-banner-box">
+        <p class="ig-banner-text">最新情報はInstagramで発信中！</p>
+        <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="ig-banner-btn" id="instagram-btn">
           <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+            <rect x="2" y="2" width="20" height="20" rx="0" ry="0" stroke="currentColor" stroke-width="2"/>
             <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
             <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
           </svg>
-          @cafe_chotto
+          <span>@cafe_chotto をフォローする</span>
         </a>
       </div>
     </div>
@@ -210,9 +261,14 @@
   <!-- アクセスセクション（Google Map） -->
   <section class="section access-section" id="access">
     <div class="section-inner">
-      <div class="section-label">Access</div>
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">香里園駅から徒歩4分・大阪府寝屋川市郡元町10−8</p>
+      <div class="section-header-asym">
+        <span class="section-number">04</span>
+        <div class="section-title-wrap">
+          <div class="section-label">Access</div>
+          <h2 class="section-title">アクセス</h2>
+        </div>
+      </div>
+
 
       <div class="map-wrap">
         <iframe
@@ -225,18 +281,14 @@
         </iframe>
       </div>
 
-      <div class="access-detail">
-        <div class="access-item">
-          <div>
-            <strong>最寄り駅</strong><br />
-            京阪本線「香里園駅」より徒歩4分
-          </div>
+      <div class="access-table">
+        <div class="access-row">
+          <span class="access-label">最寄り駅</span>
+          <span class="access-val">京阪本線「香里園駅」より徒歩4分</span>
         </div>
-        <div class="access-item">
-          <div>
-            <strong>住所</strong><br />
-            〒572-0083 大阪府寝屋川市郡元町１０−８
-          </div>
+        <div class="access-row">
+          <span class="access-label">住所</span>
+          <span class="access-val">〒572-0083 大阪府寝屋川市郡元町１０−８</span>
         </div>
       </div>
     </div>
@@ -244,17 +296,33 @@
 
   <!-- フッター -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <img src="img/ロゴ.jpg" alt="Chotto" class="footer-logo" />
-      <p class="footer-name">Chotto</p>
-      <p class="footer-address">〒572-0083 大阪府寝屋川市郡元町１０−８</p>
-      <p class="footer-hours">営業時間：水・土 18:00〜25:00</p>
-      <div class="footer-sns">
-        <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="footer-ig-link" id="footer-instagram-link">
-          Instagram: @cafe_chotto
-        </a>
+    <div class="footer-inner-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo-wrap">
+          <img src="img/ロゴ.jpg" alt="Chotto" class="footer-logo" />
+        </div>
       </div>
-      <p class="footer-copy">© 2026 Chotto. All rights reserved.</p>
+      <div class="footer-info-col">
+        <div class="footer-info-item">
+          <span class="footer-info-label">Location</span>
+          <p class="footer-info-val">〒572-0083 大阪府寝屋川市郡元町１０−８</p>
+        </div>
+        <div class="footer-info-item">
+          <span class="footer-info-label">Hours</span>
+          <p class="footer-info-val">水・土 18:00〜25:00</p>
+        </div>
+        <div class="footer-info-item">
+          <span class="footer-info-label">Social</span>
+          <p class="footer-info-val">
+            <a href="https://www.instagram.com/cafe_chotto/" target="_blank" rel="noopener noreferrer" class="footer-ig-link" id="footer-instagram-link">
+              Instagram: @cafe_chotto ↗
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copy">© 2026 Chotto. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
